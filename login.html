@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ورود | PN STUDIO</title>
+
+<style>
+*{box-sizing:border-box}
+
+body{
+    margin:0;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#02030a;
+    color:white;
+    font-family:Arial,sans-serif;
+}
+
+.box{
+    width:min(430px,90%);
+    padding:35px;
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(120,130,255,.25);
+    border-radius:22px;
+    box-shadow:0 0 50px rgba(70,80,255,.15);
+}
+
+.logo{
+    text-align:center;
+    font-size:32px;
+    font-weight:bold;
+    margin-bottom:10px;
+    background:linear-gradient(90deg,#fff,#7385ff,#a85cff,#fff);
+    background-size:300%;
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    animation:move 5s linear infinite;
+}
+
+@keyframes move{
+    from{background-position:0%}
+    to{background-position:300%}
+}
+
+.subtitle{
+    text-align:center;
+    color:#888;
+    margin-bottom:30px;
+}
+
+label{
+    display:block;
+    margin:15px 0 7px;
+    color:#bbb;
+}
+
+input{
+    width:100%;
+    padding:14px;
+    border-radius:10px;
+    border:1px solid rgba(255,255,255,.12);
+    background:#0a0c16;
+    color:white;
+    outline:none;
+    font-size:15px;
+}
+
+button{
+    width:100%;
+    margin-top:25px;
+    padding:14px;
+    border:0;
+    border-radius:10px;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    background:linear-gradient(135deg,#5269ff,#914cff);
+}
+
+#message{
+    text-align:center;
+    margin-top:18px;
+    min-height:22px;
+}
+
+.register{
+    text-align:center;
+    margin-top:20px;
+    color:#888;
+}
+
+.register a{
+    color:#8290ff;
+    text-decoration:none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+
+<div class="logo">
+PN STUDIO
+</div>
+
+<div class="subtitle">
+ورود به حساب کاربری
+</div>
+
+<form id="loginForm">
+
+<label>ایمیل</label>
+
+<input
+    type="email"
+    id="email"
+    required
+    autocomplete="email"
+>
+
+<label>رمز عبور</label>
+
+<input
+    type="password"
+    id="password"
+    required
+    autocomplete="current-password"
+>
+
+<button type="submit">
+ورود
+</button>
+
+</form>
+
+<div id="message"></div>
+
+<div class="register">
+حساب نداری؟
+<a href="register.html">
+ثبت‌نام
+</a>
+</div>
+
+</div>
+
+<script>
+
+const form =
+document.getElementById("loginForm");
+
+const message =
+document.getElementById("message");
+
+form.addEventListener("submit", async function(e){
+
+    e.preventDefault();
+
+    message.textContent="در حال ورود...";
+
+    const email =
+        document.getElementById("email").value.trim();
+
+    const password =
+        document.getElementById("password").value;
+
+    try{
+
+        const response = await fetch("/api/login",{
+
+            method:"POST",
+
+            headers:{
+                "Content-Type":"application/json"
+            },
+
+            body:JSON.stringify({
+                email,
+                password
+            })
+
+        });
+
+        const data =
+            await response.json();
+
+        if(data.success){
+
+            message.style.color="#7dffae";
+
+            message.textContent =
+                "ورود موفق بود!";
+
+            setTimeout(()=>{
+
+                window.location.href="index.html";
+
+            },1000);
+
+        }else{
+
+            message.style.color="#ff7777";
+
+            message.textContent =
+                data.message || "ورود ناموفق بود.";
+
+        }
+
+    }catch(error){
+
+        message.style.color="#ff7777";
+
+        message.textContent =
+            "ارتباط با سرور برقرار نشد.";
+
+    }
+
+});
+
+</script>
+
+</body>
+</html>

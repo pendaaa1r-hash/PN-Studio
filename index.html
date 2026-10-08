@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>PN STUDIO</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#02030a;
+    color:white;
+    font-family:Arial, sans-serif;
+    overflow-x:hidden;
+}
+
+/* =========================
+   BINARY BACKGROUND
+========================= */
+
+.binary{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    z-index:-5;
+    color:#6175ff;
+    font-family:monospace;
+    opacity:.32;
+    pointer-events:none;
+}
+
+.binary-column{
+    position:absolute;
+    top:-120%;
+    white-space:pre;
+    line-height:1.15;
+    animation:fall linear infinite;
+}
+
+@keyframes fall{
+    from{
+        transform:translateY(-20%);
+    }
+    to{
+        transform:translateY(150%);
+    }
+}
+
+/* =========================
+   GRID
+========================= */
+
+.grid{
+    position:fixed;
+    inset:0;
+    z-index:-4;
+    background-image:
+        linear-gradient(rgba(80,100,255,.07) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(80,100,255,.07) 1px,transparent 1px);
+    background-size:45px 45px;
+    pointer-events:none;
+}
+
+/* =========================
+   LIGHTS
+========================= */
+
+.glow{
+    position:fixed;
+    width:500px;
+    height:500px;
+    border-radius:50%;
+    filter:blur(120px);
+    opacity:.18;
+    z-index:-3;
+    pointer-events:none;
+}
+
+.glow.one{
+    background:#4260ff;
+    top:-150px;
+    left:-150px;
+}
+
+.glow.two{
+    background:#a02cff;
+    right:-180px;
+    bottom:-180px;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:100;
+    backdrop-filter:blur(18px);
+    background:rgba(2,3,10,.75);
+    border-bottom:1px solid rgba(120,130,255,.15);
+}
+
+.nav{
+    max-width:1200px;
+    margin:auto;
+    padding:18px 25px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    font-weight:bold;
+    letter-spacing:3px;
+}
+
+.logo-symbol{
+    width:40px;
+    height:40px;
+    background:linear-gradient(135deg,#667aff,#9d45ff);
+    clip-path:polygon(
+        0 20%,
+        30% 0,
+        100% 0,
+        75% 25%,
+        100% 50%,
+        75% 100%,
+        30% 100%,
+        0 80%,
+        25% 50%
+    );
+    position:relative;
+}
+
+.logo-symbol::after{
+    content:"PN";
+    position:absolute;
+    inset:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:white;
+    font-size:11px;
+    letter-spacing:0;
+}
+
+nav{
+    display:flex;
+    gap:25px;
+}
+
+nav a{
+    color:#bbb;
+    text-decoration:none;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:white;
+    text-shadow:0 0 12px #7182ff;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    min-height:760px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:80px 20px;
+    position:relative;
+}
+
+.hero-content{
+    max-width:950px;
+}
+
+.badge{
+    display:inline-block;
+    border:1px solid rgba(120,130,255,.4);
+    background:rgba(80,90,180,.08);
+    padding:9px 18px;
+    border-radius:30px;
+    font-size:13px;
+    letter-spacing:2px;
+    color:#9da9ff;
+    margin-bottom:25px;
+}
+
+.gradient{
+    font-size:clamp(60px,11vw,145px);
+    font-weight:900;
+    letter-spacing:-5px;
+
+    background:
+        linear-gradient(
+            100deg,
+            #ffffff,
+            #7385ff,
+            #a85cff,
+            #ffffff,
+            #687aff
+        );
+
+    background-size:300%;
+
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+
+    animation:gradientMove 5s linear infinite;
+}
+
+@keyframes gradientMove{
+    0%{
+        background-position:0%;
+    }
+
+    100%{
+        background-position:300%;
+    }
+}
+
+.hero p{
+    color:#aaa;
+    font-size:19px;
+    line-height:2;
+    max-width:700px;
+    margin:25px auto;
+}
+
+.buttons{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+    margin-top:35px;
+}
+
+.btn{
+    border:none;
+    padding:15px 25px;
+    border-radius:12px;
+    text-decoration:none;
+    cursor:pointer;
+    font-size:16px;
+    transition:.3s;
+}
+
+.btn.primary{
+    color:white;
+    background:linear-gradient(135deg,#5269ff,#914cff);
+    box-shadow:0 0 30px rgba(100,100,255,.2);
+}
+
+.btn.secondary{
+    color:white;
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.12);
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 0 30px rgba(100,110,255,.35);
+}
+
+/* =========================
+   STATS
+========================= */
+
+.stats{
+    max-width:1100px;
+    margin:auto;
+    padding:30px 20px 100px;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+.stat{
+    padding:25px;
+    background:rgba(255,255,255,.035);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:15px;
+    text-align:center;
+}
+
+.stat strong{
+    display:block;
+    font-size:30px;
+    color:#8b99ff;
+    margin-bottom:8px;
+}
+
+.stat span{
+    color:#999;
+}
+
+/* =========================
+   SECTIONS
+========================= */
+
+section.content{
+    max-width:1100px;
+    margin:auto;
+    padding:90px 20px;
+}
+
+.section-title{
+    font-size:38px;
+    margin-bottom:15px;
+}
+
+.section-subtitle{
+    color:#888;
+    margin-bottom:40px;
+}
+
+/* =========================
+   FEATURE
+========================= */
+
+.feature{
+    display:grid;
+    grid-template-columns:1fr 1.4fr;
+    gap:30px;
+    padding:35px;
+    border:1px solid rgba(120,130,255,.15);
+    background:rgba(255,255,255,.035);
+    border-radius:25px;
+}
+
+.feature-icon{
+    min-height:300px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:150px;
+    background:
+        radial-gradient(circle,rgba(100,100,255,.15),transparent 60%);
+}
+
+.feature-info h3{
+    font-size:35px;
+    margin-bottom:15px;
+}
+
+.feature-info p{
+    color:#aaa;
+    line-height:2;
+}
+
+.tag{
+    display:inline-block;
+    color:#8b9aff;
+    font-family:monospace;
+    margin-bottom:20px;
+}
+
+/* =========================
+   PROJECTS
+========================= */
+
+.projects{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.card{
+    padding:28px;
+    border-radius:20px;
+    background:rgba(255,255,255,.035);
+    border:1px solid rgba(255,255,255,.08);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-7px);
+    border-color:rgba(120,130,255,.35);
+}
+
+.card-icon{
+    font-size:50px;
+    margin-bottom:20px;
+}
+
+.card h3{
+    margin-bottom:12px;
+}
+
+.card p{
+    color:#888;
+    line-height:1.8;
+    margin-bottom:20px;
+}
+
+/* =========================
+   ABOUT
+========================= */
+
+.about{
+    padding:40px;
+    border-radius:25px;
+    border:1px solid rgba(120,130,255,.15);
+    background:rgba(255,255,255,.025);
+}
+
+.about p{
+    color:#aaa;
+    line-height:2.2;
+    font-size:17px;
+}
+
+/* =========================
+   DOWNLOAD MODAL
+========================= */
+
+.modal{
+    position:fixed;
+    inset:0;
+    z-index:999;
+    background:rgba(0,0,0,.75);
+    backdrop-filter:blur(12px);
+
+    display:none;
+    align-items:center;
+    justify-content:center;
+
+    padding:20px;
+}
+
+.modal.show{
+    display:flex;
+}
+
+.download-box{
+    width:min(500px,100%);
+    padding:35px;
+    border-radius:25px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(20,25,60,.98),
+            rgba(8,9,20,.98)
+        );
+
+    border:1px solid rgba(120,130,255,.25);
+
+    box-shadow:0 0 70px rgba(60,70,255,.2);
+    text-align:center;
+}
+
+.download-box h2{
+    margin-bottom:10px;
+}
+
+.download-box p{
+    color:#888;
+    margin-bottom:25px;
+}
+
+.platforms{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+}
+
+.platform{
+    padding:25px 15px;
+    border-radius:17px;
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.08);
+    color:white;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.platform:hover{
+    transform:translateY(-4px);
+    border-color:#7787ff;
+    box-shadow:0 0 25px rgba(100,110,255,.2);
+}
+
+.platform-icon{
+    font-size:45px;
+    display:block;
+    margin-bottom:10px;
+}
+
+.platform small{
+    display:block;
+    color:#777;
+    margin-top:7px;
+}
+
+.close{
+    margin-top:20px;
+    background:none;
+    border:none;
+    color:#888;
+    cursor:pointer;
+    font-size:15px;
+}
+
+/* =========================
+   MOBILE CONTROLS PREVIEW
+========================= */
+
+.mobile-controls{
+    margin-top:35px;
+    padding:30px;
+    border-radius:20px;
+    border:1px solid rgba(120,130,255,.15);
+    background:rgba(255,255,255,.025);
+}
+
+.mobile-controls h3{
+    margin-bottom:10px;
+}
+
+.mobile-controls p{
+    color:#888;
+    line-height:1.8;
+}
+
+.control-list{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
+    margin-top:25px;
+}
+
+.control{
+    padding:20px;
+    text-align:center;
+    border-radius:15px;
+    background:rgba(255,255,255,.04);
+}
+
+.control-icon{
+    font-size:30px;
+    display:block;
+    margin-bottom:8px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    padding:50px 20px;
+    text-align:center;
+    color:#666;
+    border-top:1px solid rgba(255,255,255,.06);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:800px){
+
+    nav{
+        display:none;
+    }
+
+    .stats{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .feature{
+        grid-template-columns:1fr;
+    }
+
+    .projects{
+        grid-template-columns:1fr;
+    }
+
+    .control-list{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .platforms{
+        grid-template-columns:1fr;
+    }
+
+    .hero{
+        min-height:650px;
+    }
+
+    .gradient{
+        letter-spacing:-2px;
+    }
+}
+
+@media(max-width:450px){
+
+    .stats{
+        grid-template-columns:1fr;
+    }
+
+    .section-title{
+        font-size:30px;
+    }
+
+    .feature{
+        padding:20px;
+    }
+
+    .mobile-controls{
+        padding:20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- BINARY -->
+<div class="binary" id="binary"></div>
+
+<div class="grid"></div>
+
+<div class="glow one"></div>
+<div class="glow two"></div>
+
+<!-- HEADER -->
+
+<header>
+
+<div class="nav">
+
+<div class="logo">
+
+<div class="logo-symbol"></div>
+
+<span>PN STUDIO</span>
+
+</div>
+
+<nav>
+<a href="#home">خانه</a>
+<a href="#games">بازی‌ها</a>
+<a href="#about">درباره ما</a>
+</nav>
+
+</div>
+
+</header>
+
+
+<!-- HERO -->
+
+<main id="home">
+
+<section class="hero">
+
+<div class="hero-content">
+
+<div class="badge">
+INDEPENDENT GAME STUDIO
+</div>
+
+<h1 class="gradient">
+PN STUDIO
+</h1>
+
+<p>
+اینجا جاییه که ایده‌ها تبدیل به بازی میشن.
+پروژه‌های مستقل، دنیاهای متفاوت و بازی‌هایی که خودمون می‌سازیم.
+</p>
+
+<div class="buttons">
+
+<a href="#games" class="btn primary">
+🎮 مشاهده بازی‌ها
+</a>
+
+<a href="#about" class="btn secondary">
+درباره PN STUDIO
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- STATS -->
+
+<div class="stats">
+
+<div class="stat">
+<strong>01</strong>
+<span>بازی در حال توسعه</span>
+</div>
+
+<div class="stat">
+<strong>03</strong>
+<span>پروژه‌های استودیو</span>
+</div>
+
+<div class="stat">
+<strong>∞</strong>
+<span>ایده برای آینده</span>
+</div>
+
+<div class="stat">
+<strong>24/7</strong>
+<span>در حال ساخت</span>
+</div>
+
+</div>
+
+
+<!-- FEATURE -->
+
+<section class="content">
+
+<div class="section-title">
+پروژه اصلی
+</div>
+
+<div class="section-subtitle">
+در حال توسعه توسط PN STUDIO
+</div>
+
+<div class="feature">
+
+<div class="feature-icon">
+🐷
+</div>
+
+<div class="feature-info">
+
+<div class="tag">
+PN-001 // ACTIVE DEVELOPMENT
+</div>
+
+<h3>
+Pig House Defense
+</h3>
+
+<p>
+از خانه در برابر موج‌های مختلف دشمنان دفاع کن،
+امتیاز جمع کن، سلاح‌هایت را ارتقا بده و در موج‌های سخت‌تر دوام بیاور.
+</p>
+
+<div class="buttons" style="justify-content:flex-start">
+
+<a href="pig-house-defense.html" class="btn secondary">
+جزئیات بازی
+</a>
+
+<button class="btn primary" id="downloadButton">
+⬇ دانلود بازی
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- MOBILE -->
+
+<div class="mobile-controls">
+
+<h3>📱 پشتیبانی از موبایل</h3>
+
+<p>
+نسخه موبایل بازی برای کنترل لمسی طراحی می‌شود و کنترل‌های مخصوص گوشی خواهد داشت.
+</p>
+
+<div class="control-list">
+
+<div class="control">
+<span class="control-icon">🕹️</span>
+حرکت
+</div>
+
+<div class="control">
+<span class="control-icon">👆</span>
+چرخش دوربین
+</div>
+
+<div class="control">
+<span class="control-icon">⚔️</span>
+حمله
+</div>
+
+<div class="control">
+<span class="control-icon">⬆️</span>
+پرش
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- PROJECTS -->
+
+<section class="content" id="games">
+
+<div class="section-title">
+پروژه‌ها
+</div>
+
+<div class="section-subtitle">
+بازی‌ها و پروژه‌های PN STUDIO
+</div>
+
+<div class="projects">
+
+<div class="card">
+
+<div class="card-icon">
+🐷
+</div>
+
+<h3>
+Pig House Defense
+</h3>
+
+<p>
+بازی دفاع از خانه در برابر موج‌های دشمنان.
+</p>
+
+<a href="pig-house-defense.html" class="btn secondary">
+مشاهده
+</a>
+
+</div>
+
+
+<div class="card">
+
+<div class="card-icon">
+🤍
+</div>
+
+<h3>
+Master White
+</h3>
+
+<p>
+یک داستان مرموز درباره شخصیتی قدرتمند و ناشناخته.
+</p>
+
+<button class="btn secondary">
+به‌زودی
+</button>
+
+</div>
+
+
+<div class="card">
+
+<div class="card-icon">
+⚡
+</div>
+
+<h3>
+پروژه بعدی
+</h3>
+
+<p>
+یک پروژه جدید در راه است...
+</p>
+
+<button class="btn secondary">
+Coming Soon
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section class="content" id="about">
+
+<div class="about">
+
+<div class="section-title">
+درباره PN STUDIO
+</div>
+
+<p>
+PN STUDIO یک استودیوی مستقل برای ساخت بازی و پروژه‌های خلاقانه است.
+هدف ما ساخت دنیاهای متفاوت، مکانیک‌های جذاب و پروژه‌هایی است که فقط یک بازی معمولی نباشند.
+</p>
+
+</div>
+
+</section>
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+© 2026 PN STUDIO
+
+</footer>
+
+
+<!-- DOWNLOAD MODAL -->
+
+<div class="modal" id="downloadModal">
+
+<div class="download-box">
+
+<h2>
+دانلود Pig House Defense
+</h2>
+
+<p>
+نسخه‌ای که می‌خواهی را انتخاب کن:
+</p>
+
+<div class="platforms">
+
+<a
+class="platform"
+href="downloads/PigHouseDefense-Windows.exe"
+download
+>
+
+<span class="platform-icon">
+🪟
+</span>
+
+Windows
+
+<small>
+نسخه کامپیوتر
+</small>
+
+</a>
+
+
+<a
+class="platform"
+href="downloads/PigHouseDefense-Android.apk"
+download
+>
+
+<span class="platform-icon">
+📱
+</span>
+
+Android
+
+<small>
+نسخه گوشی
+</small>
+
+</a>
+
+</div>
+
+<button class="close" id="closeModal">
+بستن
+</button>
+
+</div>
+
+</div>
+
+
+<script>
+
+/* =========================
+   BINARY GENERATOR
+========================= */
+
+const binary = document.getElementById("binary");
+
+for(let i=0;i<120;i++){
+
+    const column = document.createElement("div");
+
+    column.className="binary-column";
+
+    let text="";
+
+    for(let j=0;j<75;j++){
+
+        text += Math.random() > .5 ? "1" : "0";
+
+        text += "<br>";
+
+    }
+
+    column.innerHTML=text;
+
+    column.style.left=(i/120*100)+"%";
+
+    column.style.fontSize=(9+Math.random()*8)+"px";
+
+    column.style.opacity=(.12+Math.random()*.35);
+
+    column.style.animationDuration=(8+Math.random()*18)+"s";
+
+    column.style.animationDelay=(-Math.random()*20)+"s";
+
+    binary.appendChild(column);
+}
+
+
+/* =========================
+   DOWNLOAD MODAL
+========================= */
+
+const downloadButton =
+document.getElementById("downloadButton");
+
+const downloadModal =
+document.getElementById("downloadModal");
+
+const closeModal =
+document.getElementById("closeModal");
+
+
+downloadButton.addEventListener("click",function(){
+
+    downloadModal.classList.add("show");
+
+});
+
+
+closeModal.addEventListener("click",function(){
+
+    downloadModal.classList.remove("show");
+
+});
+
+
+downloadModal.addEventListener("click",function(e){
+
+    if(e.target === downloadModal){
+
+        downloadModal.classList.remove("show");
+
+    }
+
+});
+
+
+/* ESC */
+
+document.addEventListener("keydown",function(e){
+
+    if(e.key === "Escape"){
+
+        downloadModal.classList.remove("show");
+
+    }
+
+});
+
+</script>
+
+</body>
+</html>
