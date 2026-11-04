@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://pendaaa1r-hash.github.io/PN-Studio/sitemap.xml
