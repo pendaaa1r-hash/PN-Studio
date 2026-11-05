@@ -637,6 +637,21 @@ footer{
         padding:20px;
     }
 }
+
+/* ===== PN STUDIO ENHANCEMENTS ===== */
+.game-tools{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin:0 0 25px}
+.game-search{flex:1;min-width:220px;padding:14px 18px;border-radius:12px;border:1px solid rgba(120,130,255,.22);background:rgba(255,255,255,.045);color:#fff;font:inherit;outline:none}
+.game-search:focus{border-color:#8290ff;box-shadow:0 0 0 3px rgba(110,125,255,.12)}
+.filter-btn{padding:11px 16px;border:1px solid rgba(255,255,255,.12);border-radius:10px;background:rgba(255,255,255,.04);color:#ddd;cursor:pointer;font:inherit;transition:.2s}
+.filter-btn.active,.filter-btn:hover{background:linear-gradient(135deg,#5269ff,#914cff);border-color:transparent;color:#fff}
+.game-count{color:#8b99ff;font-size:14px;margin-bottom:18px}
+.no-games{display:none;text-align:center;color:#aaa;padding:30px;border:1px dashed rgba(255,255,255,.15);border-radius:15px}
+.card .tag{margin:0 0 12px}
+.card[hidden]{display:none!important}
+.site-notice{max-width:1100px;margin:0 auto 30px;padding:15px 20px;border:1px solid rgba(120,130,255,.18);border-radius:14px;background:rgba(80,90,180,.06);color:#bbb;line-height:1.8}
+.mobile-menu-btn{display:none;background:transparent;color:#fff;border:1px solid #343b67;border-radius:9px;padding:8px 12px;cursor:pointer}
+@media(max-width:800px){.mobile-menu-btn{display:block}nav.mobile-open{display:flex;position:absolute;top:100%;right:0;left:0;padding:18px 22px;background:rgba(2,3,10,.97);flex-direction:column;gap:18px;border-bottom:1px solid rgba(120,130,255,.2)}}
+
 </style>
 </head>
 
@@ -833,30 +848,37 @@ Pig House Defense
 <section class="content" id="games">
 <div class="section-title">کتابخانه بازی‌ها</div>
 <div class="section-subtitle">بازی‌های منتشرشده و پروژه‌های در حال توسعه PN STUDIO</div>
-<div class="projects">
+<div class="game-tools" role="search">
+<input class="game-search" id="gameSearch" type="search" placeholder="🔎 جست‌وجوی بازی..." aria-label="جست‌وجوی بازی‌ها">
+<button class="filter-btn active" data-filter="all">همه بازی‌ها</button>
+<button class="filter-btn" data-filter="available">قابل بازی</button>
+<button class="filter-btn" data-filter="development">در حال توسعه</button>
+</div>
+<div class="game-count" id="gameCount" aria-live="polite">۴ پروژه</div>
+<div class="projects" id="gameGrid">
 
-<div class="card">
+<div class="card" data-status="available">
 <div class="card-icon">🐷</div>
 <h3>Pig House Defense</h3>
 <p>از خانه در برابر موج‌های دشمنان دفاع کن، سلاح‌ها را ارتقا بده و با باس‌ها روبه‌رو شو.</p>
 <a href="pig-house-defense.html" class="btn primary">📖 صفحه بازی</a>
 </div>
 
-<div class="card">
+<div class="card" data-status="available">
 <div class="card-icon">🩸</div>
 <h3>شکارچی هیولا: شب خون</h3>
 <p>در شب خونین زنده بمان، موج هیولاها را شکست بده و قدرتت را افزایش بده.</p>
 <a href="monster-slayer-download.html" class="btn primary">📦 صفحه بازی و دانلود</a>
 </div>
 
-<div class="card">
+<div class="card" data-status="development">
 <div class="card-icon">🌱</div>
 <h3>گرفتار ریشه‌ها | ROOTBOUND</h3>
 <p>یک تجربه ترسناک بقا از PN Studio؛ مزرعه‌ای که شب‌ها به کابوس تبدیل می‌شود.</p>
 <span class="tag">در حال توسعه</span>
 </div>
 
-<div class="card">
+<div class="card" data-status="development">
 <div class="card-icon">🤍</div>
 <h3>Master White</h3>
 <p>یک داستان مرموز درباره شخصیتی قدرتمند و ناشناخته.</p>
@@ -864,6 +886,7 @@ Pig House Defense
 </div>
 
 </div>
+<div class="no-games" id="noGames">هیچ بازی‌ای با این جست‌وجو پیدا نشد.</div>
 </section>
 
 <!-- MONSTER SLAYER CARD -->
@@ -876,6 +899,17 @@ Pig House Defense
 <p>در شب خونین زنده بمان، موج‌های هیولاها را شکست بده، قدرت‌ها را ارتقا بده و با باس‌ها بجنگ.</p>
 <a href="monster-slayer-download.html" class="btn primary">📦 صفحه بازی و دانلود</a>
 </div></div>
+</section>
+
+<!-- NEWS / STATUS -->
+<section class="content" id="updates">
+<div class="section-title">اخبار و وضعیت پروژه‌ها</div>
+<div class="section-subtitle">آخرین وضعیت پروژه‌های PN Studio</div>
+<div class="projects">
+<div class="card"><div class="card-icon">🩸</div><h3>شکارچی هیولا: شب خون</h3><p>نسخه قابل بازی در مرورگر؛ صفحه بازی و دریافت فایل از بخش کتابخانه.</p><span class="tag">قابل بازی</span></div>
+<div class="card"><div class="card-icon">🌱</div><h3>ROOTBOUND</h3><p>پروژه ترسناک بقا در حال توسعه است.</p><span class="tag">در حال توسعه</span></div>
+<div class="card"><div class="card-icon">🛠️</div><h3>به‌روزرسانی سایت</h3><p>کتابخانه بازی‌ها اکنون امکان جست‌وجو و فیلتر پروژه‌ها را دارد.</p><span class="tag">نسخه سایت</span></div>
+</div>
 </section>
 
 <!-- ABOUT -->
@@ -1063,6 +1097,41 @@ document.addEventListener("keydown",function(e){
     }
 
 });
+
+
+/* GAME LIBRARY SEARCH / FILTER */
+(function(){
+ const input=document.getElementById('gameSearch');
+ const cards=[...document.querySelectorAll('#gameGrid .card')];
+ const buttons=[...document.querySelectorAll('.filter-btn')];
+ const count=document.getElementById('gameCount');
+ const empty=document.getElementById('noGames');
+ let filter='all';
+ function update(){
+  const q=(input.value||'').trim().toLocaleLowerCase('fa');
+  let visible=0;
+  cards.forEach(card=>{
+   const matchesText=card.innerText.toLocaleLowerCase('fa').includes(q);
+   const matchesFilter=filter==='all'||card.dataset.status===filter;
+   const show=matchesText&&matchesFilter;
+   card.hidden=!show;if(show)visible++;
+  });
+  count.textContent=visible+' بازی / پروژه';
+  empty.style.display=visible?'none':'block';
+ }
+ input.addEventListener('input',update);
+ buttons.forEach(btn=>btn.addEventListener('click',()=>{
+  filter=btn.dataset.filter;
+  buttons.forEach(b=>b.classList.toggle('active',b===btn));
+  update();
+ }));
+})();
+const menuBtn=document.getElementById('mobileMenuBtn');
+const mainNav=document.getElementById('mainNav');
+if(menuBtn&&mainNav){
+ menuBtn.addEventListener('click',()=>mainNav.classList.toggle('mobile-open'));
+ mainNav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mainNav.classList.remove('mobile-open')));
+}
 
 </script>
 
