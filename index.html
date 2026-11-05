@@ -136,37 +136,15 @@ header{
 }
 
 .logo-symbol{
-    width:44px;
-    height:44px;
-    flex:0 0 44px;
+    width:48px;
+    height:48px;
+    flex:0 0 48px;
     position:relative;
-    isolation:isolate;
-    background:linear-gradient(145deg,#dce4ff 0%,#667aff 28%,#7b35d8 68%,#24104e 100%);
-    clip-path:polygon(8% 18%,38% 0,100% 8%,82% 38%,100% 58%,68% 100%,22% 88%,0 58%,18% 38%);
-    filter:drop-shadow(0 0 7px rgba(105,120,255,.7));
-    animation:logoPulse 4s ease-in-out infinite;
+    overflow:visible;
+    filter:drop-shadow(0 0 5px rgba(100,115,255,.45));
+    animation:deadTreeGlow 5s ease-in-out infinite;
 }
-.logo-symbol::before{
-    content:"";
-    position:absolute;
-    inset:4px;
-    background:linear-gradient(145deg,#080b19,#11132c 60%,#260c43);
-    clip-path:inherit;
-    z-index:-1;
-}
-.logo-symbol::after{
-    content:"PN";
-    position:absolute;
-    inset:0;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    color:#f4f5ff;
-    font-size:14px;
-    font-weight:900;
-    letter-spacing:-1px;
-    text-shadow:0 0 8px #9aa7ff,0 0 15px #7b35d8;
-}
+.logo-symbol svg{width:100%;height:100%;display:block;overflow:visible}
 .logo span{
     font-size:17px;
     font-weight:900;
@@ -175,20 +153,13 @@ header{
     text-shadow:0 0 12px rgba(115,130,255,.35);
     transition:text-shadow .25s,color .25s;
 }
-.logo:hover span{
-    color:#fff;
-    text-shadow:0 0 8px #7182ff,0 0 22px rgba(145,76,255,.7);
+.logo:hover span{color:#fff;text-shadow:0 0 8px #7182ff,0 0 22px rgba(145,76,255,.7)}
+.logo:hover .logo-symbol{filter:drop-shadow(0 0 10px rgba(130,100,255,.9))}
+@keyframes deadTreeGlow{
+    0%,100%{filter:drop-shadow(0 0 4px rgba(105,120,255,.35))}
+    50%{filter:drop-shadow(0 0 9px rgba(145,76,255,.7))}
 }
-.logo:hover .logo-symbol{
-    filter:drop-shadow(0 0 12px rgba(130,100,255,.95));
-}
-@keyframes logoPulse{
-    0%,100%{filter:drop-shadow(0 0 5px rgba(105,120,255,.45))}
-    50%{filter:drop-shadow(0 0 11px rgba(145,76,255,.8))}
-}
-@media(prefers-reduced-motion:reduce){
-    .logo-symbol{animation:none}
-}
+@media(prefers-reduced-motion:reduce){.logo-symbol{animation:none}}
 nav{
     display:flex;
     gap:25px;
@@ -697,7 +668,23 @@ footer{
 
 <div class="logo">
 
-<div class="logo-symbol"></div>
+<div class="logo-symbol" aria-label="PN Studio dead tree logo">
+<svg viewBox="0 0 64 64" role="img" aria-label="درخت خشک">
+<defs>
+ <linearGradient id="deadTreeStroke" x1="0" y1="0" x2="1" y2="1">
+  <stop offset="0%" stop-color="#dce4ff"/>
+  <stop offset="45%" stop-color="#8492ff"/>
+  <stop offset="100%" stop-color="#a45bff"/>
+ </linearGradient>
+</defs>
+<path d="M31 57 L29 46 L20 52 L23 44 L12 46 L19 39 L8 35 L22 34 L17 25 L27 31 L29 19 L33 29 L42 18 L40 31 L54 26 L47 36 L58 39 L45 42 L49 50 L38 45 L36 58 Z"
+ fill="#080a16" stroke="url(#deadTreeStroke)" stroke-width="1.6" stroke-linejoin="round"/>
+<path d="M32 55 L31 39 L27 32 L18 28 M31 40 L38 31 L43 22 M31 34 L34 20 L30 11 M31 43 L22 39 L14 40 M32 46 L40 41 L49 42 M30 27 L24 18 L16 15 M34 31 L45 29 L52 21"
+ fill="none" stroke="url(#deadTreeStroke)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M31 55 L26 61 M32 54 L37 61 M29 51 L20 57 M35 51 L45 56"
+ fill="none" stroke="#9a83ff" stroke-width="2" stroke-linecap="round"/>
+</svg>
+</div>
 
 <span>PN STUDIO</span>
 
