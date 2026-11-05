@@ -1,153 +1,1140 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="PN Studio؛ HORROR • SURVIVAL • INDIE. بازی‌های منتشرشده و پروژه‌های تازه را کشف کن.">
+<head> <meta name="google-site-verification" content="iQGo8qIqcgDxcpuLJqaU3bmY8a-X4KAaIsPoCN67_iY" />
+<meta name="description" content="PN Studio (پی‌ان استودیو)؛ استودیوی مستقل بازی‌سازی و پروژه‌های خلاقانه. بازی‌ها، تجربه‌های تعاملی و اخبار پروژه‌های PN Studio را ببینید.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://pendaaa1r-hash.github.io/PN-Studio/">
-<meta property="og:title" content="PN Studio — بازی‌هایی فراتر از معمول">
-<meta property="og:description" content="بازی‌ها و دنیاهای ساخته‌شده توسط PN Studio">
+<meta property="og:title" content="PN Studio | استودیوی بازی‌سازی">
+<meta property="og:description" content="بازی‌ها و پروژه‌های خلاقانه از PN Studio؛ استودیوی مستقل بازی‌سازی.">
 <meta property="og:url" content="https://pendaaa1r-hash.github.io/PN-Studio/">
-<title>PN Studio | استودیوی بازی‌سازی مستقل</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&family=Orbitron:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>PN STUDIO</title>
+
 <style>
-:root{--bg:#080907;--panel:#10120f;--panel2:#171a14;--line:#292c25;--white:#e8e9e3;--muted:#92958b;--lime:#a7b58a;--purple:#454c3d;--red:#8b3535}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:'Vazirmatn',Tahoma,sans-serif;background:var(--bg);color:var(--white);overflow-x:hidden}
-a{color:inherit;text-decoration:none}
-button{font:inherit}
-.container{width:min(1180px,calc(100% - 40px));margin:auto}
-header{position:sticky;top:0;z-index:99;background:rgba(8,9,13,.88);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
-.nav{height:78px;display:flex;align-items:center;justify-content:space-between;gap:24px}
-.brand{display:flex;align-items:center;gap:12px;font-family:Orbitron,sans-serif;letter-spacing:1.5px;font-weight:900;font-size:19px}
-.brand-mark{display:grid;place-items:center;width:42px;height:42px;background:#a8b29a;color:#090a0d;font-weight:900;clip-path:polygon(0 0,100% 0,100% 75%,75% 100%,0 100%)}
-.brand span{color:var(--lime)}
-nav{display:flex;align-items:center;gap:28px;color:#b7bbc7;font-size:14px}
-nav a:hover{color:var(--lime)}
-.nav-cta{background:var(--lime);color:#090a0d;padding:11px 18px;border-radius:8px;font-weight:800;font-size:13px}
-.menu{display:none;background:transparent;color:white;border:1px solid var(--line);border-radius:8px;padding:8px 12px}
-.hero{position:relative;padding:100px 0 80px;overflow:hidden;background:linear-gradient(180deg,#080907 0%,#10120e 75%,#080907 100%)}.hero:after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.12;background:repeating-linear-gradient(0deg,transparent 0 3px,#b3b5a8 4px,transparent 5px);mix-blend-mode:overlay}
-.hero:before{content:"";position:absolute;width:700px;height:700px;border-radius:50%;background:#667052;filter:blur(180px);opacity:.12;top:-280px;left:-200px;pointer-events:none}
-.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:50px;position:relative}
-.eyebrow{display:flex;align-items:center;gap:10px;color:var(--lime);font-size:12px;font-weight:800;letter-spacing:1px;margin-bottom:24px}
-.eyebrow:before{content:"";width:28px;height:2px;background:var(--lime)}
-.hero h1{font-size:clamp(42px,6.5vw,82px);line-height:1.13;font-weight:900;letter-spacing:-2px;margin-bottom:22px}
-.hero h1 em{font-style:normal;color:#a8b29a;text-shadow:0 0 35px #a8b29a22}
-.hero p{font-size:17px;line-height:2;color:var(--muted);max-width:570px}
-.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:14px 22px;border-radius:9px;font-weight:800;font-size:14px;border:1px solid transparent;transition:.2s}
-.btn-main{background:#a8b29a;color:#0a0b0e}
-.btn-main:hover{transform:translateY(-3px);box-shadow:0 10px 30px #a8b29a20}
-.btn-ghost{border-color:#3a3d49;background:#141620;color:#fff}
-.btn-ghost:hover{border-color:var(--lime)}
-.hero-art{min-height:380px;position:relative;display:grid;place-items:center}
-.art-frame{width:min(100%,430px);aspect-ratio:1.08;position:relative;border:1px solid #343747;border-radius:22px;background:linear-gradient(145deg,#191c29,#0e1018);overflow:hidden;box-shadow:0 35px 80px #0008}
-.art-frame:before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,#c6ff4d12,transparent 45%,#9d76ff22),repeating-linear-gradient(135deg,transparent 0 28px,#ffffff04 29px 30px)}
-.art-big{position:absolute;inset:0;display:grid;place-items:center;font-size:clamp(100px,18vw,190px);filter:drop-shadow(0 20px 25px #0008)}
-.art-label{position:absolute;bottom:18px;right:20px;left:20px;display:flex;justify-content:space-between;align-items:center;background:#090a0ddd;border:1px solid #303442;border-radius:12px;padding:14px 16px}
-.art-label small{display:block;color:var(--muted);font-size:10px;margin-bottom:4px}
-.art-label strong{font-size:14px}
-.art-label .status{color:var(--lime);font-size:11px;font-weight:800}
-.float-chip{position:absolute;top:25px;left:-10px;background:#171a14;color:#b2b9a6;border:1px solid #42483a;border-radius:4px;padding:12px 16px;font-size:11px;font-weight:900;transform:rotate(-5deg)}
-.stats{border-block:1px solid var(--line);background:#0d0f15}
-.stats-row{display:grid;grid-template-columns:repeat(4,1fr)}
-.stat{padding:24px 18px;text-align:center;border-left:1px solid var(--line)}
-.stat:last-child{border-left:0}
-.stat b{font-family:Orbitron,sans-serif;font-size:25px;color:var(--lime);display:block;margin-bottom:5px}
-.stat span{font-size:12px;color:var(--muted)}
-section{padding:82px 0}
-.section-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:30px}
-.kicker{color:var(--lime);font-size:11px;font-weight:900;letter-spacing:1px;margin-bottom:10px}
-.section-head h2{font-size:clamp(27px,4vw,42px);font-weight:900}
-.section-head p{color:var(--muted);font-size:14px;margin-top:8px}
-.featured{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--panel)}
-.feature-visual{min-height:330px;display:grid;place-items:center;background:radial-gradient(circle at center,#30382b,#10120f 65%);position:relative}
-.feature-visual .emoji{font-size:150px;filter:drop-shadow(0 20px 30px #0008)}
-.feature-visual:after{content:"PN STUDIO / SURVIVAL ARCHIVE";position:absolute;top:20px;left:20px;font:10px Orbitron;color:#a8b29a}
-.feature-info{padding:38px;display:flex;flex-direction:column;justify-content:center}
-.pill{display:inline-flex;width:max-content;border:1px solid #3b4531;color:#b2bba5;background:#a8b29a0b;border-radius:3px;padding:5px 10px;font-size:10px;font-weight:800;margin-bottom:18px}
-.feature-info h3{font-size:32px;margin-bottom:14px}
-.feature-info p{color:var(--muted);line-height:2;font-size:14px}
-.feature-info .btn{align-self:flex-start;margin-top:24px}
-.library{background:#0c0e14;border-block:1px solid #171923}
-.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px}
-.search{flex:1;min-width:220px;background:#141620;border:1px solid var(--line);border-radius:9px;padding:12px 16px;color:white;font:inherit}
-.filter{background:#141620;color:#aeb3c2;border:1px solid var(--line);border-radius:8px;padding:10px 15px;cursor:pointer;font-size:12px}
-.filter.active,.filter:hover{background:#a8b29a;color:#090a0d;border-color:#a8b29a;font-weight:900}
-.games{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.game-card{background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:.25s}
-.game-card:hover{transform:translateY(-6px);border-color:#626c50;box-shadow:0 18px 40px #0008}
-.game-card[hidden]{display:none}
-.cover{height:190px;display:grid;place-items:center;font-size:78px;position:relative;overflow:hidden}
-.cover:before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,#ffffff08,transparent 45%,#0004)}
-.cover span{position:relative;filter:drop-shadow(0 12px 15px #0007)}
-.cover.cat{background:linear-gradient(135deg,#18232a,#10120f 55%,#303b3a)}
-.cover.monster{background:linear-gradient(135deg,#2b1718,#10120f 55%,#4a2725)}
-.cover.root{background:linear-gradient(135deg,#17231a,#10120f 55%,#393c28)}
-.cover.pig{background:linear-gradient(135deg,#2c252a,#10120f 55%,#3a4035)}
-.cover.white{background:linear-gradient(135deg,#292b2a,#10120f 55%,#4a4a42)}
-.game-body{padding:22px}
-.game-meta{display:flex;justify-content:space-between;gap:8px;margin-bottom:13px;font-size:10px;color:var(--muted)}
-.game-meta b{color:#a8b29a}
-.game-body h3{font-size:18px;margin-bottom:9px}
-.game-body p{font-size:12px;line-height:1.9;color:var(--muted);min-height:46px;margin-bottom:18px}
-.game-body .btn{padding:10px 14px;font-size:12px}
-.empty{display:none;color:var(--muted);padding:25px;text-align:center}
-.about-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:35px;align-items:center}
-.about-box{border:1px solid var(--line);background:linear-gradient(145deg,#171923,#0e1016);border-radius:16px;padding:30px}
-.about-box .brand-large{font:900 32px Orbitron;color:var(--lime);margin-bottom:18px}
-.about-box p{color:var(--muted);line-height:2;font-size:14px}
-.values{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-.value{padding:18px;background:var(--panel);border:1px solid var(--line);border-radius:10px}
-.value b{display:block;margin-bottom:7px;font-size:14px}
-.value span{font-size:12px;color:var(--muted);line-height:1.8}
-footer{border-top:1px solid var(--line);padding:30px 0;color:var(--muted);font-size:12px}
-.footer-row{display:flex;justify-content:space-between;gap:20px;align-items:center}
-.footer-row strong{font-family:Orbitron;color:var(--lime)}
-@media(max-width:850px){.hero-grid,.featured,.about-grid{grid-template-columns:1fr}.hero{padding-top:65px}.hero-art{min-height:300px}.games{grid-template-columns:repeat(2,1fr)}.feature-visual{min-height:260px}.section-head{align-items:start;flex-direction:column}}
-@media(max-width:600px){.container{width:calc(100% - 28px)}.nav{height:68px}.menu{display:block}nav{display:none;position:absolute;top:68px;right:0;left:0;padding:20px;background:#0b0c12;flex-direction:column;align-items:stretch;border-bottom:1px solid var(--line)}nav.open{display:flex}.nav-cta{display:none}.hero h1{letter-spacing:-1px}.hero{padding:55px 0}.hero-art{min-height:250px}.stats-row{grid-template-columns:repeat(2,1fr)}.stat:nth-child(2){border-left:0}.stat:nth-child(-n+2){border-bottom:1px solid var(--line)}.games{grid-template-columns:1fr}.cover{height:210px}.feature-info{padding:25px}.feature-info h3{font-size:26px}.values{grid-template-columns:1fr}.footer-row{flex-direction:column;align-items:flex-start}}
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#080909;
+    color:white;
+    font-family:"Vazirmatn",Arial,sans-serif;
+    overflow-x:hidden;
+}
+
+/* =========================
+   BINARY BACKGROUND
+========================= */
+
+.binary{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    z-index:-5;
+    color:#71806c;
+    font-family:monospace;
+    opacity:.32;
+    pointer-events:none;
+}
+
+.binary-column{
+    position:absolute;
+    top:-120%;
+    white-space:pre;
+    line-height:1.15;
+    animation:fall linear infinite;
+}
+
+@keyframes fall{
+    from{
+        transform:translateY(-20%);
+    }
+    to{
+        transform:translateY(150%);
+    }
+}
+
+/* =========================
+   GRID
+========================= */
+
+.grid{
+    position:fixed;
+    inset:0;
+    z-index:-4;
+    background-image:
+        linear-gradient(rgba(110,125,100,.045) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(80,100,255,.07) 1px,transparent 1px);
+    background-size:45px 45px;
+    pointer-events:none;
+}
+
+/* =========================
+   LIGHTS
+========================= */
+
+.glow{
+    position:fixed;
+    width:500px;
+    height:500px;
+    border-radius:50%;
+    filter:blur(120px);
+    opacity:.18;
+    z-index:-3;
+    pointer-events:none;
+}
+
+.glow.one{
+    background:#465442;
+    top:-150px;
+    left:-150px;
+}
+
+.glow.two{
+    background:#542b2b;
+    right:-180px;
+    bottom:-180px;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:100;
+    backdrop-filter:blur(18px);
+    background:rgba(8,9,8,.82);
+    border-bottom:1px solid rgba(145,155,130,.14);
+}
+
+.nav{
+    max-width:1200px;
+    margin:auto;
+    padding:18px 25px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    font-weight:bold;
+    letter-spacing:3px;
+}
+
+.logo-symbol{
+    width:40px;
+    height:40px;
+    background:linear-gradient(135deg,#59664d,#754040);
+    clip-path:polygon(
+        0 20%,
+        30% 0,
+        100% 0,
+        75% 25%,
+        100% 50%,
+        75% 100%,
+        30% 100%,
+        0 80%,
+        25% 50%
+    );
+    position:relative;
+}
+
+.logo-symbol::after{
+    content:"PN";
+    position:absolute;
+    inset:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:white;
+    font-size:11px;
+    letter-spacing:0;
+}
+
+nav{
+    display:flex;
+    gap:25px;
+}
+
+nav a{
+    color:#bbb;
+    text-decoration:none;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:white;
+    text-shadow:0 0 12px #9ba58a;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    min-height:760px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:80px 20px;
+    position:relative;
+}
+
+.hero-content{
+    max-width:950px;
+}
+
+.badge{
+    display:inline-block;
+    border:1px solid rgba(120,130,255,.4);
+    background:rgba(80,95,65,.08);
+    padding:9px 18px;
+    border-radius:30px;
+    font-size:13px;
+    letter-spacing:2px;
+    color:#a3ad91;
+    margin-bottom:25px;
+}
+
+.gradient{
+    font-size:clamp(60px,11vw,145px);
+    font-weight:900;
+    letter-spacing:-5px;
+
+    background:
+        linear-gradient(
+            100deg,
+            #ffffff,
+            #8f9b7c,
+            #8b4b4b,
+            #ffffff,
+            #6f7c62
+        );
+
+    background-size:300%;
+
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+
+    animation:gradientMove 5s linear infinite;
+}
+
+@keyframes gradientMove{
+    0%{
+        background-position:0%;
+    }
+
+    100%{
+        background-position:300%;
+    }
+}
+
+.hero p{
+    color:#aaa;
+    font-size:19px;
+    line-height:2;
+    max-width:700px;
+    margin:25px auto;
+}
+
+.buttons{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+    margin-top:35px;
+}
+
+.btn{
+    border:none;
+    padding:15px 25px;
+    border-radius:12px;
+    text-decoration:none;
+    cursor:pointer;
+    font-size:16px;
+    transition:.3s;
+}
+
+.btn.primary{
+    color:white;
+    background:linear-gradient(135deg,#59664d,#754040);
+    box-shadow:0 0 30px rgba(100,115,80,.18);
+}
+
+.btn.secondary{
+    color:white;
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.12);
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 0 30px rgba(115,125,90,.25);
+}
+
+/* =========================
+   STATS
+========================= */
+
+.stats{
+    max-width:1100px;
+    margin:auto;
+    padding:30px 20px 100px;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+.stat{
+    padding:25px;
+    background:rgba(255,255,255,.035);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:15px;
+    text-align:center;
+}
+
+.stat strong{
+    display:block;
+    font-size:30px;
+    color:#a0aa8e;
+    margin-bottom:8px;
+}
+
+.stat span{
+    color:#999;
+}
+
+/* =========================
+   SECTIONS
+========================= */
+
+section.content{
+    max-width:1100px;
+    margin:auto;
+    padding:90px 20px;
+}
+
+.section-title{
+    font-size:38px;
+    margin-bottom:15px;
+}
+
+.section-subtitle{
+    color:#888;
+    margin-bottom:40px;
+}
+
+/* =========================
+   FEATURE
+========================= */
+
+.feature{
+    display:grid;
+    grid-template-columns:1fr 1.4fr;
+    gap:30px;
+    padding:35px;
+    border:1px solid rgba(120,130,255,.15);
+    background:rgba(255,255,255,.035);
+    border-radius:25px;
+}
+
+.feature-icon{
+    min-height:300px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:150px;
+    background:
+        radial-gradient(circle,rgba(100,100,255,.15),transparent 60%);
+}
+
+.feature-info h3{
+    font-size:35px;
+    margin-bottom:15px;
+}
+
+.feature-info p{
+    color:#aaa;
+    line-height:2;
+}
+
+.tag{
+    display:inline-block;
+    color:#8b9aff;
+    font-family:monospace;
+    margin-bottom:20px;
+}
+
+/* =========================
+   PROJECTS
+========================= */
+
+.projects{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.card{
+    padding:28px;
+    border-radius:20px;
+    background:rgba(255,255,255,.035);
+    border:1px solid rgba(255,255,255,.08);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-7px);
+    border-color:rgba(145,155,130,.28);
+}
+
+.card-icon{
+    font-size:50px;
+    margin-bottom:20px;
+}
+
+.card h3{
+    margin-bottom:12px;
+}
+
+.card p{
+    color:#888;
+    line-height:1.8;
+    margin-bottom:20px;
+}
+
+/* =========================
+   ABOUT
+========================= */
+
+.about{
+    padding:40px;
+    border-radius:25px;
+    border:1px solid rgba(120,130,255,.15);
+    background:rgba(255,255,255,.025);
+}
+
+.about p{
+    color:#aaa;
+    line-height:2.2;
+    font-size:17px;
+}
+
+/* =========================
+   DOWNLOAD MODAL
+========================= */
+
+.modal{
+    position:fixed;
+    inset:0;
+    z-index:999;
+    background:rgba(0,0,0,.75);
+    backdrop-filter:blur(12px);
+
+    display:none;
+    align-items:center;
+    justify-content:center;
+
+    padding:20px;
+}
+
+.modal.show{
+    display:flex;
+}
+
+.download-box{
+    width:min(500px,100%);
+    padding:35px;
+    border-radius:25px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(20,25,60,.98),
+            rgba(9,10,9,.98)
+        );
+
+    border:1px solid rgba(120,130,255,.25);
+
+    box-shadow:0 0 70px rgba(90,100,70,.18);
+    text-align:center;
+}
+
+.download-box h2{
+    margin-bottom:10px;
+}
+
+.download-box p{
+    color:#888;
+    margin-bottom:25px;
+}
+
+.platforms{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+}
+
+.platform{
+    padding:25px 15px;
+    border-radius:17px;
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.08);
+    color:white;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.platform:hover{
+    transform:translateY(-4px);
+    border-color:#899477;
+    box-shadow:0 0 25px rgba(100,115,80,.18);
+}
+
+.platform-icon{
+    font-size:45px;
+    display:block;
+    margin-bottom:10px;
+}
+
+.platform small{
+    display:block;
+    color:#777;
+    margin-top:7px;
+}
+
+.close{
+    margin-top:20px;
+    background:none;
+    border:none;
+    color:#888;
+    cursor:pointer;
+    font-size:15px;
+}
+
+/* =========================
+   MOBILE CONTROLS PREVIEW
+========================= */
+
+.mobile-controls{
+    margin-top:35px;
+    padding:30px;
+    border-radius:20px;
+    border:1px solid rgba(120,130,255,.15);
+    background:rgba(255,255,255,.025);
+}
+
+.mobile-controls h3{
+    margin-bottom:10px;
+}
+
+.mobile-controls p{
+    color:#888;
+    line-height:1.8;
+}
+
+.control-list{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
+    margin-top:25px;
+}
+
+.control{
+    padding:20px;
+    text-align:center;
+    border-radius:15px;
+    background:rgba(255,255,255,.04);
+}
+
+.control-icon{
+    font-size:30px;
+    display:block;
+    margin-bottom:8px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    padding:50px 20px;
+    text-align:center;
+    color:#666;
+    border-top:1px solid rgba(255,255,255,.06);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:800px){
+
+    nav{
+        display:none;
+    }
+
+    .stats{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .feature{
+        grid-template-columns:1fr;
+    }
+
+    .projects{
+        grid-template-columns:1fr;
+    }
+
+    .control-list{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .platforms{
+        grid-template-columns:1fr;
+    }
+
+    .hero{
+        min-height:650px;
+    }
+
+    .gradient{
+        letter-spacing:-2px;
+    }
+}
+
+@media(max-width:450px){
+
+    .stats{
+        grid-template-columns:1fr;
+    }
+
+    .section-title{
+        font-size:30px;
+    }
+
+    .feature{
+        padding:20px;
+    }
+
+    .mobile-controls{
+        padding:20px;
+    }
+}
+
+/* ===== PN STUDIO ENHANCEMENTS ===== */
+.game-tools{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin:0 0 25px}
+.game-search{flex:1;min-width:220px;padding:14px 18px;border-radius:12px;border:1px solid rgba(120,130,255,.22);background:rgba(255,255,255,.045);color:#fff;font:inherit;outline:none}
+.game-search:focus{border-color:#8290ff;box-shadow:0 0 0 3px rgba(110,125,255,.12)}
+.filter-btn{padding:11px 16px;border:1px solid rgba(255,255,255,.12);border-radius:10px;background:rgba(255,255,255,.04);color:#ddd;cursor:pointer;font:inherit;transition:.2s}
+.filter-btn.active,.filter-btn:hover{background:linear-gradient(135deg,#5269ff,#914cff);border-color:transparent;color:#fff}
+.game-count{color:#8b99ff;font-size:14px;margin-bottom:18px}
+.no-games{display:none;text-align:center;color:#aaa;padding:30px;border:1px dashed rgba(255,255,255,.15);border-radius:15px}
+.card .tag{margin:0 0 12px}
+.card[hidden]{display:none!important}
+.site-notice{max-width:1100px;margin:0 auto 30px;padding:15px 20px;border:1px solid rgba(120,130,255,.18);border-radius:14px;background:rgba(80,95,65,.06);color:#bbb;line-height:1.8}
+.mobile-menu-btn{display:none;background:transparent;color:#fff;border:1px solid #343b67;border-radius:9px;padding:8px 12px;cursor:pointer}
+@media(max-width:800px){.mobile-menu-btn{display:block}nav.mobile-open{display:flex;position:absolute;top:100%;right:0;left:0;padding:18px 22px;background:rgba(8,9,8,.97);flex-direction:column;gap:18px;border-bottom:1px solid rgba(120,130,255,.2)}}
+
 </style>
 </head>
+
 <body>
-<header><div class="container nav">
-<a class="brand" href="#home"><div class="brand-mark">PN</div> PN <span>STUDIO</span></a>
-<button class="menu" id="menuBtn" aria-expanded="false">☰ منو</button>
-<nav id="nav"><a href="#home">خانه</a><a href="#featured">بازی ویژه</a><a href="#games">کتابخانه بازی‌ها</a><a href="#about">درباره استودیو</a></nav>
-<a class="nav-cta" href="#games">کشف بازی‌ها ↙</a>
-</div></header>
+
+<!-- BINARY -->
+<div class="binary" id="binary"></div>
+
+<div class="grid"></div>
+
+<div class="glow one"></div>
+<div class="glow two"></div>
+
+<!-- HEADER -->
+
+<header>
+
+<div class="nav">
+
+<div class="logo">
+
+<div class="logo-symbol"></div>
+
+<span>PN STUDIO</span>
+
+</div>
+
+<nav>
+<a href="#home">خانه</a>
+<a href="#games">کتابخانه بازی‌ها</a>
+<a href="#about">درباره ما</a>
+</nav>
+
+</div>
+
+</header>
+
+
+<!-- HERO -->
+
 <main id="home">
-<section class="hero"><div class="container hero-grid">
-<div><div class="eyebrow">استودیوی مستقل ترس و بقا</div>
-<h1>وقتی تاریکی می‌رسد،<br><em>زنده بمان.</em></h1>
-<p>PN Studio خانه‌ی تجربه‌های ترسناک، بقا و دنیاهای ناشناخته است. وارد شو؛ اما هیچ تضمینی برای بازگشت وجود ندارد.</p>
-<div class="hero-actions"><a class="btn btn-main" href="#games">ورود به آرشیو بازی‌ها</a><a class="btn btn-ghost" href="#about">بیشتر درباره ما ↗</a></div></div>
-<div class="hero-art"><div class="art-frame"><div class="art-big">🎮</div><div class="art-label"><div><small>INDEPENDENT GAME DEVELOPER</small><strong>در تاریکی تنها نیستی...</strong></div><span class="status">● ONLINE</span></div></div><div class="float-chip">SURVIVAL MODE / ON</div></div>
-</div></section>
-<div class="stats"><div class="container stats-row"><div class="stat"><b>PN</b><span>استودیوی مستقل</span></div><div class="stat"><b>01+</b><span>بازی‌های منتشرشده</span></div><div class="stat"><b>∞</b><span>جهان‌های در انتظار ساخت</span></div><div class="stat"><b>2026</b><span>سال خلق تجربه‌های تازه</span></div></div></div>
-<section id="featured"><div class="container"><div class="section-head"><div><div class="kicker">SPOTLIGHT / بازی ویژه</div><h2>پرونده‌های دنیای PN</h2><p>هر بازی، یک کابوس تازه</p></div></div>
-<div class="featured"><div class="feature-visual"><div class="emoji">🐈‍⬛</div></div><div class="feature-info"><span class="pill">بازی منتشرشده</span><h3>گربه‌ی شبگرد</h3><p>یک ماجراجویی مستقل از PN Studio. وارد دنیای بازی شو و نسخه منتشرشده را تجربه کن.</p><a class="btn btn-main" href="https://pendaaa1r-hash.github.io/night-cat-game/" target="_blank" rel="noopener">▶ اجرای بازی</a></div></div></div></section>
-<section class="library" id="games"><div class="container"><div class="section-head"><div><div class="kicker">GAME LIBRARY / آرشیو</div><h2>پرونده‌های بازی</h2><p>بازی‌های منتشرشده و پروژه‌هایی که هنوز در تاریکی شکل می‌گیرند.</p></div></div>
-<div class="toolbar"><input class="search" id="search" type="search" placeholder="جست‌وجو بین بازی‌ها..." aria-label="جست‌وجوی بازی"><button class="filter active" data-filter="all">همه</button><button class="filter" data-filter="released">منتشرشده</button><button class="filter" data-filter="dev">در حال توسعه</button></div>
-<div class="games" id="gamesGrid">
-<article class="game-card" data-status="released"><div class="cover cat"><span>🐈‍⬛</span></div><div class="game-body"><div class="game-meta"><b>منتشرشده</b><span>PN-001</span></div><h3>گربه‌ی شبگرد</h3><p>ماجراجویی مستقل ساخته‌شده توسط PN Studio.</p><a class="btn btn-main" href="https://pendaaa1r-hash.github.io/night-cat-game/" target="_blank" rel="noopener">▶ بازی کردن</a></div></article>
-<article class="game-card" data-status="released"><div class="cover monster"><span>🩸</span></div><div class="game-body"><div class="game-meta"><b>قابل بازی</b><span>PN-002</span></div><h3>شکارچی هیولا: شب خون</h3><p>با هیولاها روبه‌رو شو و برای بقا مبارزه کن.</p><a class="btn btn-main" href="monster-slayer-download.html">صفحه بازی ↗</a></div></article>
-<article class="game-card" data-status="dev"><div class="cover root"><span>🌿</span></div><div class="game-body"><div class="game-meta"><b>در حال توسعه</b><span>PN-003</span></div><h3>گرفتار ریشه‌ها / ROOTBOUND</h3><p>مزرعه‌ای مرموز؛ روزها آرام و شب‌ها کابوس‌وار.</p><span class="pill">در دست ساخت</span></div></article>
-<article class="game-card" data-status="released"><div class="cover pig"><span>🐷</span></div><div class="game-body"><div class="game-meta"><b>صفحه پروژه</b><span>PN-004</span></div><h3>Pig House Defense</h3><p>دفاع در برابر موج دشمنان و ارتقای تجهیزات.</p><a class="btn btn-ghost" href="pig-house-defense.html">جزئیات ↗</a></div></article>
-<article class="game-card" data-status="dev"><div class="cover white"><span>🤍</span></div><div class="game-body"><div class="game-meta"><b>در حال توسعه</b><span>PN-005</span></div><h3>Master White</h3><p>پروژه‌ای مرموز از دنیای PN Studio.</p><span class="pill">به‌زودی</span></div></article>
-</div><div class="empty" id="empty">چیزی با این جست‌وجو پیدا نشد.</div></div></section>
-<section id="about"><div class="container about-grid"><div><div class="kicker">WHO WE ARE / درباره ما</div><h2 style="font-size:clamp(30px,4vw,45px);margin-bottom:18px">در دل تاریکی،<br><span style="color:var(--lime)">ما جهان می‌سازیم.</span></h2><p style="color:var(--muted);line-height:2">PN Studio استودیویی مستقل با تمرکز بر ترس، بقا و تجربه‌های داستانی است؛ جایی که هر پروژه، دروازه‌ای به ناشناخته‌هاست.</p></div><div class="about-box"><div class="brand-large">PN STUDIO</div><p>اینجا قرار نیست همه‌چیز امن باشد. ما دنیاهایی می‌سازیم که در آن باید تصمیم بگیری، دوام بیاوری و رازها را کشف کنی.</p><div class="values" style="margin-top:22px"><div class="value"><b>🕯️ ترس و بقا</b><span>جهان‌های تاریک و پرتنش</span></div><div class="value"><b>🩸 داستان</b><span>رازهایی برای کشف</span></div><div class="value"><b>🌲 بقا</b><span>مواجهه با ناشناخته‌ها</span></div><div class="value"><b>☠️ اتمسفر</b><span>تجربه‌های سینمایی و وهم‌آلود</span></div></div></div></div></section>
+
+<section class="hero">
+
+<div class="hero-content">
+
+<div class="badge">
+INDEPENDENT GAME STUDIO
+</div>
+
+<h1 class="gradient">
+PN STUDIO
+</h1>
+
+<p>
+اینجا جاییه که ایده‌ها تبدیل به بازی میشن.
+پروژه‌های مستقل، دنیاهای متفاوت و بازی‌هایی که خودمون می‌سازیم.
+</p>
+
+<div class="buttons">
+
+<a href="#games" class="btn primary">
+🎮 مشاهده بازی‌ها
+</a>
+
+<a href="#about" class="btn secondary">
+درباره PN STUDIO
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- STATS -->
+
+<div class="stats">
+
+<div class="stat">
+<strong>01</strong>
+<span>بازی در حال توسعه</span>
+</div>
+
+<div class="stat">
+<strong>03</strong>
+<span>پروژه‌های استودیو</span>
+</div>
+
+<div class="stat">
+<strong>∞</strong>
+<span>ایده برای آینده</span>
+</div>
+
+<div class="stat">
+<strong>24/7</strong>
+<span>در حال ساخت</span>
+</div>
+
+</div>
+
+
+<!-- FEATURE -->
+
+<section class="content">
+
+<div class="section-title">
+پروژه اصلی
+</div>
+
+<div class="section-subtitle">
+در حال توسعه توسط PN STUDIO
+</div>
+
+<div class="feature">
+
+<div class="feature-icon">
+🐷
+</div>
+
+<div class="feature-info">
+
+<div class="tag">
+PN-001 // ACTIVE DEVELOPMENT
+</div>
+
+<h3>
+Pig House Defense
+</h3>
+
+<p>
+از خانه در برابر موج‌های مختلف دشمنان دفاع کن،
+امتیاز جمع کن، سلاح‌هایت را ارتقا بده و در موج‌های سخت‌تر دوام بیاور.
+</p>
+
+<div class="buttons" style="justify-content:flex-start">
+
+<a href="pig-house-defense.html" class="btn secondary">
+جزئیات بازی
+</a>
+
+<button class="btn primary" id="downloadButton">
+⬇ دانلود بازی
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- MOBILE -->
+
+<div class="mobile-controls">
+
+<h3>📱 پشتیبانی از موبایل</h3>
+
+<p>
+نسخه موبایل بازی برای کنترل لمسی طراحی می‌شود و کنترل‌های مخصوص گوشی خواهد داشت.
+</p>
+
+<div class="control-list">
+
+<div class="control">
+<span class="control-icon">🕹️</span>
+حرکت
+</div>
+
+<div class="control">
+<span class="control-icon">👆</span>
+چرخش دوربین
+</div>
+
+<div class="control">
+<span class="control-icon">⚔️</span>
+حمله
+</div>
+
+<div class="control">
+<span class="control-icon">⬆️</span>
+پرش
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- PROJECTS / GAME LIBRARY -->
+<section class="content" id="games">
+<div class="section-title">کتابخانه بازی‌ها</div>
+<div class="section-subtitle">بازی‌های منتشرشده و پروژه‌های در حال توسعه PN STUDIO</div>
+<div class="game-tools" role="search">
+<input class="game-search" id="gameSearch" type="search" placeholder="🔎 جست‌وجوی بازی..." aria-label="جست‌وجوی بازی‌ها">
+<button class="filter-btn active" data-filter="all">همه بازی‌ها</button>
+<button class="filter-btn" data-filter="available">قابل بازی</button>
+<button class="filter-btn" data-filter="development">در حال توسعه</button>
+</div>
+<div class="game-count" id="gameCount" aria-live="polite">۴ پروژه</div>
+<div class="projects" id="gameGrid">
+
+<div class="card" data-status="available">
+<div class="card-icon">🐷</div>
+<h3>Pig House Defense</h3>
+<p>از خانه در برابر موج‌های دشمنان دفاع کن، سلاح‌ها را ارتقا بده و با باس‌ها روبه‌رو شو.</p>
+<a href="pig-house-defense.html" class="btn primary">📖 صفحه بازی</a>
+</div>
+
+<div class="card" data-status="available">
+<div class="card-icon">🩸</div>
+<h3>شکارچی هیولا: شب خون</h3>
+<p>در شب خونین زنده بمان، موج هیولاها را شکست بده و قدرتت را افزایش بده.</p>
+<a href="monster-slayer-download.html" class="btn primary">📦 صفحه بازی و دانلود</a>
+</div>
+
+<div class="card" data-status="development">
+<div class="card-icon">🌱</div>
+<h3>گرفتار ریشه‌ها | ROOTBOUND</h3>
+<p>یک تجربه ترسناک بقا از PN Studio؛ مزرعه‌ای که شب‌ها به کابوس تبدیل می‌شود.</p>
+<span class="tag">در حال توسعه</span>
+</div>
+
+<div class="card" data-status="development">
+<div class="card-icon">🤍</div>
+<h3>Master White</h3>
+<p>یک داستان مرموز درباره شخصیتی قدرتمند و ناشناخته.</p>
+<button class="btn secondary">به‌زودی</button>
+</div>
+
+</div>
+<div class="no-games" id="noGames">هیچ بازی‌ای با این جست‌وجو پیدا نشد.</div>
+</section>
+
+<!-- MONSTER SLAYER CARD -->
+<section class="content" id="monster-slayer">
+<div class="section-title">بازی جدید منتشر شد</div>
+<div class="section-subtitle">شکارچی هیولا: شب خون — قابل بازی در مرورگر</div>
+<div class="projects"><div class="card">
+<div class="card-icon">🩸</div>
+<h3>شکارچی هیولا: شب خون</h3>
+<p>در شب خونین زنده بمان، موج‌های هیولاها را شکست بده، قدرت‌ها را ارتقا بده و با باس‌ها بجنگ.</p>
+<a href="monster-slayer-download.html" class="btn primary">📦 صفحه بازی و دانلود</a>
+</div></div>
+</section>
+
+<!-- NEWS / STATUS -->
+<section class="content" id="updates">
+<div class="section-title">اخبار و وضعیت پروژه‌ها</div>
+<div class="section-subtitle">آخرین وضعیت پروژه‌های PN Studio</div>
+<div class="projects">
+<div class="card"><div class="card-icon">🩸</div><h3>شکارچی هیولا: شب خون</h3><p>نسخه قابل بازی در مرورگر؛ صفحه بازی و دریافت فایل از بخش کتابخانه.</p><span class="tag">قابل بازی</span></div>
+<div class="card"><div class="card-icon">🌱</div><h3>ROOTBOUND</h3><p>پروژه ترسناک بقا در حال توسعه است.</p><span class="tag">در حال توسعه</span></div>
+<div class="card"><div class="card-icon">🛠️</div><h3>به‌روزرسانی سایت</h3><p>کتابخانه بازی‌ها اکنون امکان جست‌وجو و فیلتر پروژه‌ها را دارد.</p><span class="tag">نسخه سایت</span></div>
+</div>
+</section>
+
+<!-- ABOUT -->
+
+<section class="content" id="about">
+
+<div class="about">
+
+<div class="section-title">
+درباره PN STUDIO
+</div>
+
+<p>
+PN STUDIO یک استودیوی مستقل برای ساخت بازی و پروژه‌های خلاقانه است.
+هدف ما ساخت دنیاهای متفاوت، مکانیک‌های جذاب و پروژه‌هایی است که فقط یک بازی معمولی نباشند.
+</p>
+
+</div>
+
+</section>
+
 </main>
-<footer><div class="container footer-row"><div>© 2026 PN Studio — تمامی حقوق محفوظ است.</div><strong>PN STUDIO</strong><a href="#home">بازگشت به بالا ↑</a></div></footer>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+© 2026 PN STUDIO
+
+</footer>
+
+
+<!-- DOWNLOAD MODAL -->
+
+<div class="modal" id="downloadModal">
+
+<div class="download-box">
+
+<h2>
+دانلود Pig House Defense
+</h2>
+
+<p>
+نسخه‌ای که می‌خواهی را انتخاب کن:
+</p>
+
+<div class="platforms">
+
+<a
+class="platform"
+href="downloads/PigHouseDefense-Windows.exe"
+download
+>
+
+<span class="platform-icon">
+🪟
+</span>
+
+Windows
+
+<small>
+نسخه کامپیوتر
+</small>
+
+</a>
+
+
+<a
+class="platform"
+href="downloads/PigHouseDefense-Android.apk"
+download
+>
+
+<span class="platform-icon">
+📱
+</span>
+
+Android
+
+<small>
+نسخه گوشی
+</small>
+
+</a>
+
+</div>
+
+<button class="close" id="closeModal">
+بستن
+</button>
+
+</div>
+
+</div>
+
+
 <script>
-const menuBtn=document.getElementById('menuBtn'),nav=document.getElementById('nav');
-menuBtn.addEventListener('click',()=>{const open=nav.classList.toggle('open');menuBtn.setAttribute('aria-expanded',String(open));});
-nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');menuBtn.setAttribute('aria-expanded','false')}));
-const search=document.getElementById('search'),cards=[...document.querySelectorAll('.game-card')],filters=[...document.querySelectorAll('.filter')],empty=document.getElementById('empty');let current='all';
-function update(){let q=search.value.trim().toLocaleLowerCase('fa');let n=0;cards.forEach(c=>{let show=c.innerText.toLocaleLowerCase('fa').includes(q)&&(current==='all'||c.dataset.status===current);c.hidden=!show;if(show)n++});empty.style.display=n?'none':'block'}
-search.addEventListener('input',update);filters.forEach(b=>b.addEventListener('click',()=>{current=b.dataset.filter;filters.forEach(x=>x.classList.toggle('active',x===b));update()}));
+
+/* =========================
+   BINARY GENERATOR
+========================= */
+
+const binary = document.getElementById("binary");
+
+for(let i=0;i<120;i++){
+
+    const column = document.createElement("div");
+
+    column.className="binary-column";
+
+    let text="";
+
+    for(let j=0;j<75;j++){
+
+        text += Math.random() > .5 ? "1" : "0";
+
+        text += "<br>";
+
+    }
+
+    column.innerHTML=text;
+
+    column.style.left=(i/120*100)+"%";
+
+    column.style.fontSize=(9+Math.random()*8)+"px";
+
+    column.style.opacity=(.12+Math.random()*.35);
+
+    column.style.animationDuration=(8+Math.random()*18)+"s";
+
+    column.style.animationDelay=(-Math.random()*20)+"s";
+
+    binary.appendChild(column);
+}
+
+
+/* =========================
+   DOWNLOAD MODAL
+========================= */
+
+const downloadButton =
+document.getElementById("downloadButton");
+
+const downloadModal =
+document.getElementById("downloadModal");
+
+const closeModal =
+document.getElementById("closeModal");
+
+
+downloadButton.addEventListener("click",function(){
+
+    downloadModal.classList.add("show");
+
+});
+
+
+closeModal.addEventListener("click",function(){
+
+    downloadModal.classList.remove("show");
+
+});
+
+
+downloadModal.addEventListener("click",function(e){
+
+    if(e.target === downloadModal){
+
+        downloadModal.classList.remove("show");
+
+    }
+
+});
+
+
+/* ESC */
+
+document.addEventListener("keydown",function(e){
+
+    if(e.key === "Escape"){
+
+        downloadModal.classList.remove("show");
+
+    }
+
+});
+
+
+/* GAME LIBRARY SEARCH / FILTER */
+(function(){
+ const input=document.getElementById('gameSearch');
+ const cards=[...document.querySelectorAll('#gameGrid .card')];
+ const buttons=[...document.querySelectorAll('.filter-btn')];
+ const count=document.getElementById('gameCount');
+ const empty=document.getElementById('noGames');
+ let filter='all';
+ function update(){
+  const q=(input.value||'').trim().toLocaleLowerCase('fa');
+  let visible=0;
+  cards.forEach(card=>{
+   const matchesText=card.innerText.toLocaleLowerCase('fa').includes(q);
+   const matchesFilter=filter==='all'||card.dataset.status===filter;
+   const show=matchesText&&matchesFilter;
+   card.hidden=!show;if(show)visible++;
+  });
+  count.textContent=visible+' بازی / پروژه';
+  empty.style.display=visible?'none':'block';
+ }
+ input.addEventListener('input',update);
+ buttons.forEach(btn=>btn.addEventListener('click',()=>{
+  filter=btn.dataset.filter;
+  buttons.forEach(b=>b.classList.toggle('active',b===btn));
+  update();
+ }));
+})();
+const menuBtn=document.getElementById('mobileMenuBtn');
+const mainNav=document.getElementById('mainNav');
+if(menuBtn&&mainNav){
+ menuBtn.addEventListener('click',()=>mainNav.classList.toggle('mobile-open'));
+ mainNav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mainNav.classList.remove('mobile-open')));
+}
+
 </script>
-</body></html>
+
+</body>
+</html>
