@@ -11,7 +11,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>PN STUDIO</title>
+<title>PN Studio | بازی‌های مستقل و پروژه‌های خلاقانه</title>
 
 <style>
 *{
@@ -679,9 +679,11 @@ footer{
 
 </div>
 
-<nav>
+<button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="باز کردن منو" aria-expanded="false">☰ منو</button>
+<nav id="mainNav">
 <a href="#home">خانه</a>
 <a href="#games">کتابخانه بازی‌ها</a>
+<a href="#updates">اخبار</a>
 <a href="#about">درباره ما</a>
 </nav>
 
@@ -1015,7 +1017,7 @@ Android
 
 const binary = document.getElementById("binary");
 
-for(let i=0;i<120;i++){
+for(let i=0;i<48;i++){
 
     const column = document.createElement("div");
 
@@ -1033,7 +1035,7 @@ for(let i=0;i<120;i++){
 
     column.innerHTML=text;
 
-    column.style.left=(i/120*100)+"%";
+    column.style.left=(i/48*100)+"%";
 
     column.style.fontSize=(9+Math.random()*8)+"px";
 
@@ -1129,8 +1131,16 @@ document.addEventListener("keydown",function(e){
 const menuBtn=document.getElementById('mobileMenuBtn');
 const mainNav=document.getElementById('mainNav');
 if(menuBtn&&mainNav){
- menuBtn.addEventListener('click',()=>mainNav.classList.toggle('mobile-open'));
- mainNav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mainNav.classList.remove('mobile-open')));
+ menuBtn.addEventListener('click',()=>{
+  const isOpen=mainNav.classList.toggle('mobile-open');
+  menuBtn.setAttribute('aria-expanded',String(isOpen));
+  menuBtn.setAttribute('aria-label',isOpen?'بستن منو':'باز کردن منو');
+ });
+ mainNav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+  mainNav.classList.remove('mobile-open');
+  menuBtn.setAttribute('aria-expanded','false');
+  menuBtn.setAttribute('aria-label','باز کردن منو');
+ }));
 }
 
 </script>
