@@ -700,6 +700,40 @@ body{font-size:16px;line-height:1.85}
 .hero p,.section-subtitle,.card p,.feature-info p,.about p{font-family:'Segoe UI',Tahoma,sans-serif;font-weight:400}
 
 
+/* PN STUDIO: dark crimson logo identity */
+.logo-image{width:108px;height:auto;max-height:58px;object-fit:contain;display:block;filter:drop-shadow(0 0 6px rgba(180,20,25,.2));transition:filter .25s,transform .25s}
+.logo:hover .logo-image{filter:drop-shadow(0 0 10px rgba(230,25,35,.5));transform:scale(1.03)}
+.logo{gap:10px}
+.logo span{display:none}
+body{background:#030303;color:#e8e5e3}
+.binary{color:#9a252b;opacity:.16}
+.grid{background-image:linear-gradient(rgba(150,25,30,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(150,25,30,.035) 1px,transparent 1px)}
+.glow.one{background:#5a0c12;opacity:.18}
+.glow.two{background:#301016;opacity:.16}
+header{background:rgba(3,3,3,.9);border-bottom:1px solid rgba(180,35,40,.18)}
+nav a:hover{text-shadow:0 0 12px #a82127;color:#fff}
+.badge{border-color:rgba(180,35,40,.4);background:rgba(100,15,20,.12);color:#d58a8a}
+.gradient{background:linear-gradient(100deg,#f1eeeb,#aaa5a1,#8f242a,#ded9d5,#b52a30);background-size:300%;-webkit-background-clip:text;background-clip:text;color:transparent}
+.btn.primary{background:linear-gradient(135deg,#74171c,#a62930);box-shadow:0 0 28px rgba(150,20,30,.2)}
+.btn:hover{box-shadow:0 0 28px rgba(190,25,35,.28)}
+.stat{background:rgba(255,255,255,.018);border-color:rgba(180,35,40,.12)}
+.stat strong{color:#c64a4f}
+.feature{border-color:rgba(180,35,40,.15);background:rgba(255,255,255,.018)}
+.feature-icon{background:radial-gradient(circle,rgba(120,20,25,.14),transparent 60%)}
+.tag{color:#d16b70}
+.card{background:rgba(255,255,255,.018);border-color:rgba(180,35,40,.12)}
+.card:hover{border-color:rgba(190,35,45,.35)}
+.about{border-color:rgba(180,35,40,.14);background:rgba(255,255,255,.015)}
+.download-box{background:linear-gradient(145deg,rgba(30,8,10,.98),rgba(6,6,6,.98));border-color:rgba(180,35,40,.24);box-shadow:0 0 65px rgba(90,10,15,.2)}
+.platform:hover{border-color:#b52a30;box-shadow:0 0 20px rgba(170,25,35,.18)}
+.game-search{border-color:rgba(180,35,40,.2)}
+.game-search:focus{border-color:#b52a30;box-shadow:0 0 0 3px rgba(150,20,30,.12)}
+.filter-btn.active,.filter-btn:hover{background:linear-gradient(135deg,#74171c,#a62930)}
+.game-count{color:#c64a4f}
+.site-notice{border-color:rgba(180,35,40,.14);background:rgba(70,10,15,.05)}
+footer{border-top-color:rgba(180,35,40,.08)}
+@media(max-width:800px){.logo-image{width:88px;max-height:48px}}
+
 </style>
 </head>
 
@@ -721,23 +755,7 @@ body{font-size:16px;line-height:1.85}
 
 <div class="logo">
 
-<div class="logo-symbol" aria-label="PN Studio dead tree logo">
-<svg viewBox="0 0 64 64" role="img" aria-label="درخت خشک">
-<defs>
- <linearGradient id="deadTreeStroke" x1="0" y1="0" x2="1" y2="1">
-  <stop offset="0%" stop-color="#dce4ff"/>
-  <stop offset="45%" stop-color="#8492ff"/>
-  <stop offset="100%" stop-color="#a45bff"/>
- </linearGradient>
-</defs>
-<path d="M31 57 L29 46 L20 52 L23 44 L12 46 L19 39 L8 35 L22 34 L17 25 L27 31 L29 19 L33 29 L42 18 L40 31 L54 26 L47 36 L58 39 L45 42 L49 50 L38 45 L36 58 Z"
- fill="#080a16" stroke="url(#deadTreeStroke)" stroke-width="1.6" stroke-linejoin="round"/>
-<path d="M32 55 L31 39 L27 32 L18 28 M31 40 L38 31 L43 22 M31 34 L34 20 L30 11 M31 43 L22 39 L14 40 M32 46 L40 41 L49 42 M30 27 L24 18 L16 15 M34 31 L45 29 L52 21"
- fill="none" stroke="url(#deadTreeStroke)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M31 55 L26 61 M32 54 L37 61 M29 51 L20 57 M35 51 L45 56"
- fill="none" stroke="#9a83ff" stroke-width="2" stroke-linecap="round"/>
-</svg>
-</div>
+<img class="logo-image" src="data:image/jpeg;base64,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" alt="PN Studio logo">
 
 <span>PN STUDIO</span>
 
