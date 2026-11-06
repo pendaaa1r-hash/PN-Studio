@@ -1,0 +1,115 @@
+name: Build Monster Slayer APK
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/build-monster-slayer-apk.yml"
+      - "monster-slayer.html"
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+      - uses: android-actions/setup-android@v3
+      - name: Install Android SDK
+        run: sdkmanager "platforms;android-35" "build-tools;35.0.0"
+      - name: Create Android project
+        run: |
+          mkdir -p app/src/main/assets app/src/main/java/com/pnstudio/monsterslayer
+          cp monster-slayer.html app/src/main/assets/index.html
+          cat > settings.gradle <<'EOF'
+          pluginManagement { repositories { google(); mavenCentral(); gradlePluginPortal() } }
+          dependencyResolutionManagement { repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS); repositories { google(); mavenCentral() } }
+          rootProject.name = "MonsterSlayer"
+          include(":app")
+          EOF
+          cat > build.gradle <<'EOF'
+          plugins {
+              id 'com.android.application' version '8.7.3' apply false
+          }
+          EOF
+          cat > gradle.properties <<'EOF'
+          org.gradle.jvmargs=-Xmx2048m -Dfile.encoding=UTF-8
+          android.useAndroidX=true
+          EOF
+          cat > app/build.gradle <<'EOF'
+          plugins { id 'com.android.application' }
+          android {
+              namespace 'com.pnstudio.monsterslayer'
+              compileSdk 35
+              defaultConfig {
+                  applicationId 'com.pnstudio.monsterslayer'
+                  minSdk 23
+                  targetSdk 28
+                  versionCode 1
+                  versionName '1.0'
+              }
+          }
+          EOF
+          cat > app/src/main/AndroidManifest.xml <<'EOF'
+          <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+              <application android:label="شکارچی هیولا" android:theme="@android:style/Theme.Material.Light.NoActionBar" android:usesCleartextTraffic="true">
+                  <activity android:name=".MainActivity" android:screenOrientation="landscape" android:configChanges="orientation|screenSize|keyboardHidden" android:exported="true">
+                      <intent-filter>
+                          <action android:name="android.intent.action.MAIN"/>
+                          <category android:name="android.intent.category.LAUNCHER"/>
+                      </intent-filter>
+                  </activity>
+              </application>
+          </manifest>
+          EOF
+          cat > app/src/main/java/com/pnstudio/monsterslayer/MainActivity.java <<'EOF'
+          package com.pnstudio.monsterslayer;
+          import android.app.Activity;
+          import android.os.Bundle;
+          import android.view.View;
+          import android.webkit.WebView;
+          import android.webkit.WebViewClient;
+          import android.webkit.WebSettings;
+          import android.graphics.Color;
+          public class MainActivity extends Activity {
+              WebView web;
+              @Override public void onCreate(Bundle b) {
+                  super.onCreate(b);
+                  getWindow().getDecorView().setSystemUiVisibility(5894|1024|512|4096);
+                  web = new WebView(this);
+                  web.setBackgroundColor(Color.BLACK);
+                  WebSettings s=web.getSettings();
+                  s.setJavaScriptEnabled(true); s.setDomStorageEnabled(true);
+                  s.setMediaPlaybackRequiresUserGesture(false);
+                  web.setWebViewClient(new WebViewClient(){
+                      @Override public void onPageFinished(WebView v,String url){
+                          v.evaluateJavascript("(function(){"+
+                          "document.body.style.touchAction='none';"+
+                          "let style=document.createElement('style');style.textContent='.mobileControls{position:fixed;inset:0;pointer-events:none;z-index:9999;font-family:Tahoma}.mc{pointer-events:auto;position:absolute;background:#170c22cc;border:2px solid #ff2f55;color:white;border-radius:15px;font-size:18px;font-weight:bold;touch-action:none;user-select:none}.joy{left:20px;bottom:20px;width:145px;height:145px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#aaa}.btn{width:68px;height:68px;display:flex;align-items:center;justify-content:center}.attack{right:22px;bottom:28px;width:100px;height:100px;border-radius:50%;background:#7c102bcc}.dash{right:140px;bottom:28px}.q{right:140px;bottom:108px}.e{right:22px;bottom:140px}';document.head.appendChild(style);"+
+                          "let box=document.createElement('div');box.className='mobileControls';box.innerHTML='<div class=\"mc joy\" id=\"joy\">MOVE</div><div class=\"mc btn attack\" id=\"atk\">SWORD</div><div class=\"mc btn dash\" id=\"dash\">DASH</div><div class=\"mc btn q\" id=\"q\">Q</div><div class=\"mc btn e\" id=\"e\">E</div>';document.body.appendChild(box);"+
+                          "function key(k,on){let code=k==='W'?'KeyW':k==='A'?'KeyA':k==='S'?'KeyS':k==='D'?'KeyD':k;window.dispatchEvent(new KeyboardEvent(on?'keydown':'keyup',{code:code,key:k,bubbles:true}));}"+
+                          "let joy=document.getElementById('joy'),active=null;joy.addEventListener('pointerdown',e=>{active=e.pointerId;joy.setPointerCapture(active);move(e)});function move(e){let r=joy.getBoundingClientRect(),dx=e.clientX-(r.left+r.width/2),dy=e.clientY-(r.top+r.height/2),ang=Math.atan2(dy,dx),dist=Math.hypot(dx,dy),n=[];if(dist>18){if(Math.cos(ang)>.35)n.push('D');if(Math.cos(ang)<-.35)n.push('A');if(Math.sin(ang)>.35)n.push('S');if(Math.sin(ang)<-.35)n.push('W')}['W','A','S','D'].forEach(k=>key(k,n.includes(k)));}joy.addEventListener('pointermove',e=>{if(e.pointerId===active)move(e)});function stopjoy(){active=null;['W','A','S','D'].forEach(k=>key(k,false))}joy.addEventListener('pointerup',stopjoy);joy.addEventListener('pointercancel',stopjoy);"+
+                          "let canvas=document.querySelector('canvas');function aim(e){let r=canvas.getBoundingClientRect(),x=(e.clientX-r.left)/r.width*1280,y=(e.clientY-r.top)/r.height*720;canvas.dispatchEvent(new MouseEvent('mousemove',{clientX:e.clientX,clientY:e.clientY,bubbles:true}));}"+
+                          "let atk=document.getElementById('atk');atk.addEventListener('pointerdown',e=>{e.preventDefault();atk.setPointerCapture(e.pointerId);aim(e);canvas.dispatchEvent(new MouseEvent('mousedown',{button:0,clientX:e.clientX,clientY:e.clientY,bubbles:true}))});function endatk(){window.dispatchEvent(new MouseEvent('mouseup',{button:0,bubbles:true}))}atk.addEventListener('pointerup',endatk);atk.addEventListener('pointercancel',endatk);"+
+                          "['dash','q','e'].forEach((id,i)=>{let k=['Space','Q','E'][i],el=document.getElementById(id);el.addEventListener('pointerdown',e=>{e.preventDefault();key(k,true)});['pointerup','pointercancel'].forEach(ev=>el.addEventListener(ev,()=>key(k,false)))})"+
+                          "})();",null);
+                      }
+                  });
+                  setContentView(web); web.loadUrl("file:///android_asset/index.html");
+              }
+              @Override public void onBackPressed(){ if(web!=null&&web.canGoBack())web.goBack();else super.onBackPressed(); }
+          }
+          EOF
+      - name: Build debug APK
+        run: gradle --no-daemon assembleDebug
+      - uses: actions/upload-artifact@v4
+        with:
+          name: MonsterSlayer-APK
+          path: app/build/outputs/apk/debug/app-debug.apk
+          if-no-files-found: error
+          retention-days: 30
